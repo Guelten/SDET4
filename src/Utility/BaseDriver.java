@@ -15,6 +15,7 @@ public class BaseDriver {
     static
     {
         // ilk adimda calisan kismi
+        KalanOncekileriKapat();
 
         Logger logger= Logger.getLogger("");     // bütün log`lara üreten objeye/servise ulastim ("")
         logger.setLevel(Level.SEVERE);                 // Sadece errorları göster
@@ -38,6 +39,15 @@ public class BaseDriver {
                                                         // hazır hale gelmesi verilen mühlet yani süre.
     }
 
+    public static void KalanOncekileriKapat()
+    {
+
+        try {
+            Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
+        } catch (Exception ignored) {
+
+        }
+    }
     public static void driverBekleKapat()
     {
         Myfunc.Bekle(10);
