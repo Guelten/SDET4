@@ -1,0 +1,10 @@
+
+Interview Sorulari :
+  Action Class nedir ? nerelerde kullanilir ? neler yapabilirsiniz ?
+  WebElement lerde kullanilir.
+
+  Hoverover, doubleClick, rightClick, drag and drop,
+  özel tuslara basma (shtift, ctrl, yön tüslari)
+
+  Action Sinifini nasil kullanirsin ?
+  Actions aksiyonlar=new Actions(driver); // driver üzerinden aksiyonlari kullanacagiz.
