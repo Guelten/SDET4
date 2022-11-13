@@ -3,6 +3,7 @@ package Utility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.logging.Level;
@@ -11,6 +12,8 @@ import java.util.logging.Logger;
 public class BaseDriver {
 
     public static WebDriver driver;
+
+    public static WebDriverWait wait;
 
     static
     {
@@ -24,7 +27,7 @@ public class BaseDriver {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
         driver = new ChromeDriver();                   // web sayfasini kontrol eden görevli
 
-        //driver.manage().window().maximize();           // Ekranı max yapıyor.
+        //driver.manage().window().maximize();         // Ekranı max yapıyor.
         driver.manage().deleteAllCookies();            // sitenin senin bilgisayarında yaptığı ayarlar
                                                        // siliniyor, sayfa başlangıç ayarlarına dönüyor
 
@@ -37,6 +40,9 @@ public class BaseDriver {
 
         driver.manage().timeouts().implicitlyWait(dr);  // Bütün weblementlerin element bazında, elemente özel işlem yapılmadan önce
                                                         // hazır hale gelmesi verilen mühlet yani süre.
+
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
     }
 
     public static void KalanOncekileriKapat()
